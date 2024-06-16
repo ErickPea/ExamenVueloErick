@@ -7,7 +7,7 @@ import com.examen.vuelos.Entity.Country;
 import com.examen.vuelos.IService.CountryIService;
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("v1/api/Country")
+@RequestMapping("v1/api/country")
 public class CountryController extends ABaseController<Country, CountryIService>{
 
 	public CountryController(CountryIService service) {

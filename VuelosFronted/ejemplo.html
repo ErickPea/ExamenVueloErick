@@ -1,114 +1,160 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trip Filter</title>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Vuelos</title>
+    <link rel="stylesheet" href="../assets/frontend.css"
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-  <h1>Trip Filter</h1>
-  <label for="originFilter">Origin:</label>
-  <input type="text" id="originFilter">
-  <label for="destinationFilter">Destination:</label>
-  <input type="text" id="destinationFilter">
-  <button onclick="filterTrips()">Filter</button>
-
-  <table id="tripTable">
-    <thead>
-      <tr>
-        <th>Origin</th>
-        <th>Destination</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Rows will be inserted here dynamically -->
-    </tbody>
-  </table>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trip Filter</title>
-  <style>
-    table {
+<style>
+  table {
       width: 100%;
       border-collapse: collapse;
-    }
-    th, td {
+  }
+  th, td {
+      border: 1px solid black;
       padding: 8px;
-      border: 1px solid #ddd;
       text-align: left;
-    }
-  </style>
-</head>
+  }
+</style>
 <body>
-  <h1>Trip Filter</h1>
-  <label for="originFilter">Origin:</label>
-  <select id="originFilter">
-    <option value="">All</option>
-    <option value="New York">New York</option>
-    <option value="San Francisco">San Francisco</option>
-    <option value="Miami">Miami</option>
-    <option value="Boston">Boston</option>
-    <option value="Los Angeles">Los Angeles</option>
-  </select><br><br>
-  
-  <label for="destinationFilter">Destination:</label>
-  <select id="destinationFilter">
-    <option value="">All</option>
-    <option value="Los Angeles">Los Angeles</option>
-    <option value="Chicago">Chicago</option>
-    <option value="New York">New York</option>
-    <option value="Miami">Miami</option>
-    <option value="San Francisco">San Francisco</option>
-  </select><br><br>
-  
-  <label for="departureStartFilter">Departure Start Date:</label>
-  <input type="date" id="departureStartFilter"><br><br>
-  
-  <label for="departureEndFilter">Departure End Date:</label>
-  <input type="date" id="departureEndFilter"><br><br>
-  
-  <label for="returnStartFilter">Return Start Date:</label>
-  <input type="date" id="returnStartFilter"><br><br>
-  
-  <label for="returnEndFilter">Return End Date:</label>
-  <input type="date" id="returnEndFilter"><br><br>
-  
-  <label for="tripType">Trip Type:</label>
-  <select id="tripType">
-    <option value="">All</option>
-    <option value="oneway">One-way</option>
-    <option value="roundtrip">Round-trip</option>
-  </select><br><br>
-  
-  <button onclick="filterTrips()">Filter</button>
-
-  <table id="tripTable">
-    <thead>
-      <tr>
-        <th>Origin</th>
-        <th>Destination</th>
-        <th>Departure Date</th>
-        <th>Return Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Rows will be inserted here dynamically -->
-    </tbody>
-  </table>
-
-  <script src="script.js"></script>
+    <div class="container">
+        <div class="header">
+            <h1>Búsqueda de vuelos</h1>
+        </div>
+        <div class="search-params">
+            <h2>Parámetros de Búsqueda</h2>
+            <div class="search-form">
+                <div class="form-group">
+                    <label for="origen">Origen</label>
+                    <select id="origen">
+                        <option value="CAI">CAI</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="destino">Destino</label>
+                    <select id="destino">
+                        <option value="AUH">AUH</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tipo-cabina">Tipo de Cabina</label>
+                    <select id="tipo-cabina">
+                        <option value="Economy">Economy</option>
+                        <option value="Business">Business</option>
+                        <option value="First">First</option>
+                    </select>
+                </div>
+                <div class="form-group radio-group">
+                    <label>Tipo de Viaje</label>
+                    <div>
+                        <input type="radio" name="tipo-viaje" value="retorno" id="retorno" checked> 
+                        <label for="retorno">Retorno</label>
+                        <input type="radio" name="tipo-viaje" value="solo-ida" id="solo-ida">
+                        <label for="solo-ida">Solo ida</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="fecha-salida">Fecha Salida</label>
+                    <input type="date" id="fecha-salida" value="2016-10-11">
+                </div>
+                <div class="form-group">
+                    <label for="fecha-regreso">Fecha Regreso</label>
+                    <input type="date" id="fecha-regreso" value="2016-10-11">
+                </div>
+                <button><i class="fas fa-search"></i> Aplicar</button>
+            </div>
+        </div>
+        <div class="flight-details">
+            <h2>Detalle de vuelos de salida:</h2>
+            <input type="checkbox" id="salida-checkbox">
+            <label for="salida-checkbox">Visualización tres días antes y después</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Número de Vuelo</th>
+                        <th>Precio de Cabina</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AUH</td>
+                        <td>CAI</td>
+                        <td>11/10/2016</td>
+                        <td>8:15</td>
+                        <td>[XXXX]</td>
+                        <td>$405</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="flight-details">
+            <h2>Detalle de vuelos de regreso:</h2>
+            <input type="checkbox" id="regreso-checkbox" checked>
+            <label for="regreso-checkbox">Visualización tres días antes y después</label>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Origen</th>
+                        <th>Destino</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Número de Vuelo</th>
+                        <th>Precio de Cabina</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CAI</td>
+                        <td>AUH</td>
+                        <td>12/10/2016</td>
+                        <td>8:15</td>
+                        <td>[XXXX]</td>
+                        <td>$420</td>
+                    </tr>
+                    <tr>
+                        <td>CAI</td>
+                        <td>AUH</td>
+                        <td>13/10/2016</td>
+                        <td>16:15</td>
+                        <td>[YYYY]</td>
+                        <td>$350</td>
+                    </tr>
+                    <tr>
+                        <td>CAI</td>
+                        <td>AUH</td>
+                        <td>15/10/2016</td>
+                        <td>11:45</td>
+                        <td>[ZZZZ]</td>
+                        <td>$420</td>
+                    </tr>
+                    <tr>
+                        <td>CAI</td>
+                        <td>AUH</td>
+                        <td>16/10/2016</td>
+                        <td>16:15</td>
+                        <td>[AAAA]</td>
+                        <td>$350</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="confirm-reservation">
+            <h2>Confirmar reserva para:</h2>
+            <div class="form-group">
+                <input type="number" placeholder="0"> Pasajeros
+            </div>
+            <div class="buttons">
+                <button id="reservar-vuelo">Reservar Vuelo</button>
+                <button id="salir">Salir</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/busquedavuelos.js"></script>                                                                                                     
 </body>
 </html>

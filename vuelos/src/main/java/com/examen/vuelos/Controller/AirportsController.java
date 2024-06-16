@@ -13,7 +13,7 @@ import com.examen.vuelos.IRepository.AirportsIRepository;
 import com.examen.vuelos.IService.AirportsIService;
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("v1/api/Airports")
+@RequestMapping("v1/api/airports")
 public class AirportsController extends ABaseController<Airports, AirportsIService>{
 
 	public AirportsController(AirportsIService service) {

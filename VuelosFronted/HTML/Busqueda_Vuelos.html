@@ -13,12 +13,11 @@
             border: 1px solid black;
             padding: 8px;
             text-align: left;
-        }  
+        }
     </style>
 </head>
 <body>
     <div id="search-container">
-        
         <h2>Parámetros de Búsqueda</h2>
         <form id="search-form">
             <label for="origin">Origen</label>
@@ -30,20 +29,17 @@
             <label for="cabin">Tipo de Cabina</label>
             <select id="cabin">
                 <option value="Economy">Economy</option>
-
                 <option value="Business">Business</option>
             </select>
 
-            <label for="roundtrip">Tipo de Viaje</label>
+            <label for="tripType">Tipo de Viaje</label>
             <input type="radio" id="roundtrip" name="tripType" value="roundtrip" checked> Retorno
-
             <input type="radio" id="oneway" name="tripType" value="oneway"> Solo Ida
 
             <label for="departure-date">Fecha de Salida</label>
             <input type="date" id="departure-date">
 
             <label for="return-date">Fecha de Regreso</label>
-
             <input type="date" id="return-date">
 
             <button type="button" onclick="searchFlights()">Aplicar</button>
@@ -61,14 +57,26 @@
                     <th>Hora</th>
                     <th>Número de Vuelo</th>
                     <th>Precio de Cabina</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                <tr>
+                    <td>AUH</td>
+                    <td>CAI</td>
+                    <td>11/10/2016</td>
+                    <td>8:15</td>
+                    <td>[XXXX]</td>
+                    <td>$405</td>
+                </tr>
+
+            </tbody>
         </table>
 
         <h2>Detalle de vuelos de regreso:</h2>
         <table id="return-flights-table">
             <thead>
+
                 <tr>
                     <th>Origen</th>
                     <th>Destino</th>
@@ -76,18 +84,61 @@
                     <th>Hora</th>
                     <th>Número de Vuelo</th>
                     <th>Precio de Cabina</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
-            <tbody></tbody>
+            <tbody>
+                <tr>
+                    <td>CAI</td>
+                    <td>AUH</td>
+                    <td>12/10/2016</td>
+                    <td>8:15</td>
+                    <td>[XXXX]</td>
+                    <td>$420</td>
+                </tr>
+                <tr>
+                    <td>CAI</td>
+                    <td>AUH</td>
+                    <td>13/10/2016</td>
+                    <td>16:15</td>
+                    <td>[YYYY]</td>
+                    <td>$350</td>
+                </tr>
+                <tr>
+                    <td>CAI</td>
+                    <td>AUH</td>
+                    <td>15/10/2016</td>
+                    <td>11:45</td>
+                    <td>[ZZZZ]</td>
+                    <td>$420</td>
+                </tr>
+                <tr>
+                    <td>CAI</td>
+                    <td>AUH</td>
+                    <td>16/10/2016</td>
+                    <td>16:15</td>
+                    <td>[AAAA]</td>
+                    <td>$350</td>
+                </tr>
+
+            </tbody>
         </table>
+
+
     </div>
+<div class="confirm-reservation">
+    <h2>
+        Confirmar reserva para : 
+    </h2>
+<div class="form-group">
+    <input type="number" placeholder="0" >
+    Pasajeros 
 
-  
-
+</div>
+<div class="buttons"> <button id="reservar_vuelo">Reservar Vuelo</button>
+<button id="salir">Salir</button></div>
+</div>
+    <script src="../JAVASCRIPT/script.js"></script>
+    
 </body>
-<script src="scripts.js"></script>
-<script>
-    actualizarTabla();
-    cargarDatos();
-</script>
 </html>

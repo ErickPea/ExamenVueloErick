@@ -9,7 +9,7 @@ import com.examen.vuelos.IService.SchedulesIService;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("v1/api/Schedules")
+@RequestMapping("v1/api/schedules")
 public class SchedulesController extends ABaseController<Schedules, SchedulesIService>{
 
 	public SchedulesController(SchedulesIService service) {
