@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscador de Vuelos</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }  
+    </style>
+</head>
+<body>
+    <div id="search-container">
+        
+        <h2>Parámetros de Búsqueda</h2>
+        <form id="search-form">
+            <label for="origin">Origen</label>
+            <select id="origin"></select>
+
+            <label for="destination">Destino</label>
+            <select id="destination"></select>
+
+            <label for="cabin">Tipo de Cabina</label>
+            <select id="cabin">
+                <option value="Economy">Economy</option>
+
+                <option value="Business">Business</option>
+            </select>
+
+            <label for="roundtrip">Tipo de Viaje</label>
+            <input type="radio" id="roundtrip" name="tripType" value="roundtrip" checked> Retorno
+
+            <input type="radio" id="oneway" name="tripType" value="oneway"> Solo Ida
+
+            <label for="departure-date">Fecha de Salida</label>
+            <input type="date" id="departure-date">
+
+            <label for="return-date">Fecha de Regreso</label>
+
+            <input type="date" id="return-date">
+
+            <button type="button" onclick="searchFlights()">Aplicar</button>
+        </form>
+    </div>
+
+    <div id="results-container">
+        <h2>Detalle de vuelos de salida:</h2>
+        <table id="departure-flights-table">
+            <thead>
+                <tr>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Número de Vuelo</th>
+                    <th>Precio de Cabina</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <h2>Detalle de vuelos de regreso:</h2>
+        <table id="return-flights-table">
+            <thead>
+                <tr>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Número de Vuelo</th>
+                    <th>Precio de Cabina</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script src="scripts.js"></script>
+
+</body>
+</html>

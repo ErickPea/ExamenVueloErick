@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Filter</title>
+  
+</head>
+<body>
+  <h1>Trip Filter</h1>
+  <label for="originFilter">Origin:</label>
+  <input type="text" id="originFilter">
+  <label for="destinationFilter">Destination:</label>
+  <input type="text" id="destinationFilter">
+  <button onclick="filterTrips()">Filter</button>
+
+  <table id="tripTable">
+    <thead>
+      <tr>
+        <th>Origin</th>
+        <th>Destination</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be inserted here dynamically -->
+    </tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Filter</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>Trip Filter</h1>
+  <label for="originFilter">Origin:</label>
+  <select id="originFilter">
+    <option value="">All</option>
+    <option value="New York">New York</option>
+    <option value="San Francisco">San Francisco</option>
+    <option value="Miami">Miami</option>
+    <option value="Boston">Boston</option>
+    <option value="Los Angeles">Los Angeles</option>
+  </select><br><br>
+  
+  <label for="destinationFilter">Destination:</label>
+  <select id="destinationFilter">
+    <option value="">All</option>
+    <option value="Los Angeles">Los Angeles</option>
+    <option value="Chicago">Chicago</option>
+    <option value="New York">New York</option>
+    <option value="Miami">Miami</option>
+    <option value="San Francisco">San Francisco</option>
+  </select><br><br>
+  
+  <label for="departureStartFilter">Departure Start Date:</label>
+  <input type="date" id="departureStartFilter"><br><br>
+  
+  <label for="departureEndFilter">Departure End Date:</label>
+  <input type="date" id="departureEndFilter"><br><br>
+  
+  <label for="returnStartFilter">Return Start Date:</label>
+  <input type="date" id="returnStartFilter"><br><br>
+  
+  <label for="returnEndFilter">Return End Date:</label>
+  <input type="date" id="returnEndFilter"><br><br>
+  
+  <label for="tripType">Trip Type:</label>
+  <select id="tripType">
+    <option value="">All</option>
+    <option value="oneway">One-way</option>
+    <option value="roundtrip">Round-trip</option>
+  </select><br><br>
+  
+  <button onclick="filterTrips()">Filter</button>
+
+  <table id="tripTable">
+    <thead>
+      <tr>
+        <th>Origin</th>
+        <th>Destination</th>
+        <th>Departure Date</th>
+        <th>Return Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Rows will be inserted here dynamically -->
+    </tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>

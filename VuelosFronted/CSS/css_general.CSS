@@ -1,0 +1,39 @@
+
+body {
+    font-family: Arial, sans-serif;
+  }
+  .container {
+    width: 90%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .filters label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  .filters input, .filters select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .filter-group {
+    flex: 1;
+    min-width: 200px;
+  }
+  .filter-group.radio-group {
+    flex: 0 0 200px;
+  }
+  
+  
+
+  /*Tabla*/
+  
