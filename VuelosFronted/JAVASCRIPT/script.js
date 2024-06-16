@@ -2,6 +2,49 @@ document.addEventListener('DOMContentLoaded', () => {
     loadAirports();
 });
 
+fetch('http://localhost:8000/pruebatiendaa/v1/api/Schedules')
+  .then(response => response.json())
+  .then(data => {
+    // Lógica para manejar los datos recibidos
+    // Aquí puedes llamar a una función que actualice la tabla con los datos recibidos
+    actualizarTabla(data);
+  })
+  .catch(error => {
+    console.error('Error al obtener los datos:', error);
+  });
+
+
+  function actualizarTabla(data) {
+    var tabla = document.getElementById("miTabla").getElementsByTagName('tbody')[0];
+    data.forEach(function(dato) {
+      var fila = tabla.insertRow();
+      var celda1 = fila.insertCell(0);
+      var celda2 = fila.insertCell(1);
+      // Agrega más celdas si es necesario
+      
+      // Asigna los valores de los datos a las celdas
+      celda1.textContent = dato.valor1;
+      celda2.textContent = dato.valor2;
+      // Asigna más valores de datos a más celdas si es necesario
+    });
+  }
+
+  window.onload = function() {
+    cargarDatos();
+  };
+  
+  function cargarDatos() {
+    fetch('http://localhost:8000/pruebatiendaa/v1/api/Schedules')
+      .then(response => response.json())
+      .then(data => {
+        actualizarTabla(data);
+      })
+      .catch(error => {
+        console.error('Error al obtener los datos:', error);
+      });
+  }
+  
+  
 async function loadAirports() {
     const response = await fetch('1v/api/airports');
     const airports = await response.json();
